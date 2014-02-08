@@ -1,0 +1,10 @@
+{
+  "name": "meetjs-local",
+  "private": true,
+  "dependencies": {
+    "jquery": "~1.10.2",
+    "reveal.js": "~2.6.1",
+    "requirejs": "~2.1.10"
+  },
+  "devDependencies": {}
+}
