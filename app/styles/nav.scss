@@ -1,0 +1,101 @@
+/*********************************************
+ * CONTROLS
+ *********************************************/
+body {
+  background: #1c1e20;
+  background: -moz-radial-gradient(center, circle cover, #555a5f 0%, #1c1e20 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #555a5f), color-stop(100%, #1c1e20));
+  background: -webkit-radial-gradient(center, circle cover, #555a5f 0%, #1c1e20 100%);
+  background: -o-radial-gradient(center, circle cover, #555a5f 0%, #1c1e20 100%);
+  background: -ms-radial-gradient(center, circle cover, #555a5f 0%, #1c1e20 100%);
+  background: radial-gradient(center, circle cover, #555a5f 0%, #1c1e20 100%);
+  background-color: #2b2b2b;
+}
+
+.controls {
+	position: absolute;
+	overflow: auto;
+	top: 1%;
+	bottom: 1%;
+	left: 1%;
+	right: 1%;
+}
+
+.controls div {
+	position: absolute;
+	opacity: 0.05;
+	width: 0;
+	height: 0;
+	border: 120px solid transparent;
+
+	-moz-transform: scale(.9999);
+
+	-webkit-transition: all 0.2s ease;
+	   -moz-transition: all 0.2s ease;
+	    -ms-transition: all 0.2s ease;
+	     -o-transition: all 0.2s ease;
+	        transition: all 0.2s ease;
+}
+
+.controls div.enabled {
+	opacity: 0.7;
+	cursor: pointer;
+}
+
+.controls div.enabled:active {
+	margin-top: 1px;
+}
+
+.controls div.navigate-left {
+	top: 42px;
+	bottom: 42px;
+	opacity: 0.4;
+
+	border-right-width: 130px;
+	border-right-color: #eee;
+}
+
+.controls div.navigate-right {
+	right: 0px;
+	top: 42px;
+	bottom: 42px;
+
+	border-left-width: 130px;
+	border-left-color: #eee;
+}
+
+.controls div.navigate-left,
+.controls div.navigate-left.enabled {
+  border-right-color: #13daec; }
+
+.controls div.navigate-right,
+.controls div.navigate-right.enabled {
+  border-left-color: #13daec; }
+
+.controls div.navigate-left.enabled:hover {
+  border-right-color: #71e9f4; }
+
+.controls div.navigate-right.enabled:hover {
+  border-left-color: #71e9f4; }
+
+.controls div.navigate-left,
+.controls div.navigate-left.enabled {
+  border-right-color: #13daec; }
+
+.controls div.navigate-right,
+.controls div.navigate-right.enabled {
+  border-left-color: #13daec; }
+
+.controls div.navigate-up,
+.controls div.navigate-up.enabled {
+  border-bottom-color: #13daec; }
+
+.controls div.navigate-down,
+.controls div.navigate-down.enabled {
+  border-top-color: #13daec; }
+
+.controls div.navigate-left.enabled:hover {
+  border-right-color: #71e9f4; }
+
+.controls div.navigate-right.enabled:hover {
+  border-left-color: #71e9f4; }
