@@ -4,7 +4,8 @@
   "dependencies": {
     "jquery": "~1.10.2",
     "reveal.js": "~2.6.1",
-    "requirejs": "~2.1.10"
+    "requirejs": "~2.1.10",
+    "sockjs-client": "~0.3.4"
   },
   "devDependencies": {}
 }
