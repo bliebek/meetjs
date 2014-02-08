@@ -15,3 +15,11 @@ socket.onclose = function(){
 socket.onerror = function(){
 	console.log('Socket error', arguments);
 };
+
+$('.navigate-left').click(function(){
+	socket.send('goLeft');
+});
+
+$('.navigate-right').click(function(){
+	socket.send('goRight');
+});
