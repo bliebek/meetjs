@@ -2,6 +2,9 @@
  * Copied from: https://github.com/hakimel/reveal.js
  */
 /*global Reveal*/
+/*global hljs*/
+'use strict';
+
 Reveal.initialize({
 
     // Display controls in the bottom right corner
@@ -74,7 +77,14 @@ Reveal.initialize({
     parallaxBackgroundImage: '', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
 
     // Parallax background size
-    parallaxBackgroundSize: '' // CSS syntax, e.g. "2100px 900px"
+    parallaxBackgroundSize: '', // CSS syntax, e.g. "2100px 900px"
 
-
+    dependencies: [
+		{ src: 'bower_components/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+		{ src: 'bower_components/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		{ src: 'bower_components/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		{ src: 'bower_components/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+		{ src: 'bower_components/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+		{ src: 'bower_components/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+	]
 });
