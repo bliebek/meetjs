@@ -28,83 +28,153 @@
         <div class="reveal">
             <div class="slides">
                 <section>
-                    <h1>Reveal.js</h1>
-                    <h3>HTML Presentations Made Easy</h3>
-                    <p>
-                        <small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
-                    </p>
+                    <h1>Budowanie<br />aplikacji JS</h1>
                 </section>
 
-                <section>
-                    <h2>Heads Up</h2>
-                    <p>
-                        reveal.js is a framework for easily creating beautiful presentations using HTML. You'll need a browser with
-                        support for CSS 3D transforms to see it in its full glory.
-                    </p>
-
-                    <aside class="notes">
-                        Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-                    </aside>
-                </section>
-                <section>
-                    <h2>Slides</h2>
-                    <p>
-                        Not a coder? No problem. There's a fully-featured visual editor for authoring these, try it out at <a href="http://slid.es" target="_blank">http://slid.es</a>.
-                    </p>
-                </section>
-
-                <section>
-                    <h2>Point of View</h2>
-                    <p>
-                        Press <strong>ESC</strong> to enter the slide overview.
-                    </p>
-                    <p>
-                        Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
-                    </p>
-                </section>
-
-                <section>
-                    <h2>Works in Mobile Safari</h2>
-                    <p>
-                        Try it out! You can swipe through the slides and pinch your way to the overview.
-                    </p>
-                </section>
-
-                <section>
-                    <h2>Marvelous Unordered List</h2>
+                <section class="personal">
+                    <h2>O mnie</h2>
+                    <img src="images/188c2b2.jpg" />
+                    <h3>Bartek Liebek:</h3>
                     <ul>
-                        <li>No order here</li>
-                        <li>Or here</li>
-                        <li>Or here</li>
-                        <li>Or here</li>
+                        <li>Front-End developer<br />@ Lemon Demon</li>
+                        <li><a href="#">bliebek@github</a></li>
+                        <li><a href="#">bliebek@linkedin</a></li>
+                        <li><a href="#">bliebek@gmail.com</a></li>
                     </ul>
                 </section>
 
                 <section>
-                    <h2>Fantastic Ordered List</h2>
+                    <h2>Na początek</h2>
+                    <blockquote>Każdą, nawet najprostszą aplikację buduj tak, jak dużą. 
+                        Nigdy nie wiesz, kiedy i do jakich rozmiarów Twoja aplikacja urośnie.</blockquote>
+                </section>
+
+                <section>
+                    <h2>Święty Graal<small>*</small></h2>
+                    <ul>
+                        <li>Łatwa produkcja</li>
+                        <li>One-click deployment</li>
+                        <li>oraz wiele innych...</li>
+                    </ul>
+                    <p><br /><br /><br /><small>*Po więcej informacji o Świętym Graalu odsyłam do filmu: Monty Python i Święty Graal</small></p>
+                </section>
+
+                <section>
                     <ol>
-                        <li>One is smaller than...</li>
-                        <li>Two is smaller than...</li>
-                        <li>Three!</li>
+                        <li>Szkielet</li>
+                        <li>Development</li>
+                        <li>Testowanie</li>
+                        <li>Deployment</li>
+                        <li>Monitorowanie</li>
+                        <li>Jakość kodu i raportowanie</li>
                     </ol>
                 </section>
 
-                <section data-markdown>
-                    <script type="text/template">
-                        ## Markdown support
+                <section>
+                    <ol>
+                        <li>Szkielet</li>
+                        <li class="inactive">Development</li>
+                        <li class="inactive">Testowanie</li>
+                        <li class="inactive">Deployment</li>
+                        <li class="inactive">Monitorowanie</li>
+                        <li class="inactive">Jakość kodu i raportowanie</li>
+                    </ol>
+                </section>
 
-                        For those of you who like that sort of thing. Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
+                <section>
+                    <h2>3 wspaniałych</h2>
+                    <img src="images/yeoman-logo.png" />
+                    <img src="images/grunt-logo.svg" />
+                    <img src="images/bower-logo.png" />
+                </section>
 
-                        ```
-                        <section data-markdown>
-                          ## Markdown support
+                <section>
+                    <h2>Tworzenie szkieletu aplikacji w<br />3 prostych krokach</h2>
+                    <pre>
+                        <code class="bash">
+                            npm install -g yo
+                            yo webapp
+                            grunt
+                        </code>
+                    </pre>
+                </section>
 
-                          For those of you who like that sort of thing.
-                          Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
-                        </section>
-                        ```
-                    </script>
-                </section>               
+                <section>
+                    <h2>Co właśnie zrobiłem?</h2>
+                    <ul>
+                        <li>... tutaj wpisz listę wszystkiego z yo ...</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <ol>
+                        <li class="inactive">Szkielet</li>
+                        <li>Development</li>
+                        <li class="inactive">Testowanie</li>
+                        <li class="inactive">Deployment</li>
+                        <li class="inactive">Monitorowanie</li>
+                        <li class="inactive">Jakość kodu i raportowanie</li>
+                    </ol>
+                </section>
+
+                <section>
+                    <ol>
+                        <li class="inactive">Szkielet</li>
+                        <li class="inactive">Development</li>
+                        <li>Testowanie</li>
+                        <li class="inactive">Deployment</li>
+                        <li class="inactive">Monitorowanie</li>
+                        <li class="inactive">Jakość kodu i raportowanie</li>
+                    </ol>
+                </section>
+
+                <section>
+                    <ol>
+                        <li class="inactive">Szkielet</li>
+                        <li class="inactive">Development</li>
+                        <li class="inactive">Testowanie</li>
+                        <li>Deployment</li>
+                        <li class="inactive">Monitorowanie</li>
+                        <li class="inactive">Jakość kodu i raportowanie</li>
+                    </ol>
+                </section>
+
+                <section>
+                    <ol>
+                        <li class="inactive">Szkielet</li>
+                        <li class="inactive">Development</li>
+                        <li class="inactive">Testowanie</li>
+                        <li class="inactive">Deployment</li>
+                        <li>Monitorowanie</li>
+                        <li class="inactive">Jakość kodu i raportowanie</li>
+                    </ol>
+                </section>
+
+                <section>
+                    <ol>
+                        <li class="inactive">Szkielet</li>
+                        <li class="inactive">Development</li>
+                        <li class="inactive">Testowanie</li>
+                        <li class="inactive">Deployment</li>
+                        <li class="inactive">Monitorowanie</li>
+                        <li>Jakość kodu i raportowanie</li>
+                    </ol>
+                </section>
+
+                <section>
+                    <h1>Demo</h1>
+                </section>
+
+                <section>
+                    <h2>Linki</h2>
+                    <ul>
+                        <li></li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h1>Dziękuję za uwagę</h1>
+                </section>              
             </div>
         </div>
 

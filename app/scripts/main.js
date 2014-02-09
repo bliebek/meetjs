@@ -12,7 +12,7 @@ Reveal.initialize({
     controls: true,
 
     // Display a presentation progress bar
-    progress: true,
+    progress: false,
 
     // Display the page number of the current slide
     slideNumber: false,
@@ -63,7 +63,7 @@ Reveal.initialize({
     previewLinks: false,
 
     // Transition style
-    transition: 'default', // default/cube/page/concave/zoom/linear/fade/none
+    transition: 'fade', // default/cube/page/concave/zoom/linear/fade/none
 
     // Transition speed
     transitionSpeed: 'default', // default/fast/slow
