@@ -5,5 +5,29 @@
     }
 }
 .inactive {
-    opacity: 0.3;
+    opacity: 0.1;
+}
+
+.mark {
+    color: #268bd2;
+}
+.reveal blockquote {
+    color: #268bd2;
+    line-height: 50px;
+    margin-top: 100px;
+}
+
+.reveal .theThree img {
+    border: none;
+    box-shadow: none;
+    width: 250px;
+}
+
+.reveal .theThree img.inactive {
+    opacity: 0.1;
+}
+
+.reveal pre code {
+    font-size: 30px;
+    line-height: 36px;
 }

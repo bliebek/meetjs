@@ -13,7 +13,7 @@
         <!-- build:css styles/vendor.css -->
         <!-- bower:css -->
         <link rel="stylesheet" href="bower_components/reveal.js/css/reveal.min.css">
-        <link rel="stylesheet" href="bower_components/reveal.js/css/theme/default.css" id="theme">
+        <link rel="stylesheet" href="bower_components/reveal.js/css/theme/solarized.css" id="theme">
         <link rel="stylesheet" href="bower_components/reveal.js/lib/css/zenburn.css">
         <!-- endbower -->
         <!-- endbuild -->
@@ -34,9 +34,9 @@
                 <section class="personal">
                     <h2>O mnie</h2>
                     <img src="images/188c2b2.jpg" />
-                    <h3>Bartek Liebek:</h3>
-                    <ul>
-                        <li>Front-End developer<br />@ Lemon Demon</li>
+                    <br /><h3>Bartek Liebek</h3>
+                    <br /><ul>
+                        <li>Front-End developer<br />@ Lemon Demon<br />&nbsp;</li>
                         <li><a href="#">bliebek@github</a></li>
                         <li><a href="#">bliebek@linkedin</a></li>
                         <li><a href="#">bliebek@gmail.com</a></li>
@@ -81,28 +81,54 @@
                     </ol>
                 </section>
 
-                <section>
+                <section class="theThree">
                     <h2>3 wspaniałych</h2>
                     <img src="images/yeoman-logo.png" />
-                    <img src="images/grunt-logo.svg" />
+                    <img src="images/grunt-logo.png" />
+                    <img src="images/bower-logo.png" />
+                </section>
+
+                <section class="theThree">
+                    <h2>3 wspaniałych</h2>
+                    <img src="images/yeoman-logo.png" />
+                    <img class="inactive" src="images/grunt-logo.png" />
+                    <img class="inactive" src="images/bower-logo.png" />
+                </section>
+
+                <section class="theThree">
+                    <h2>3 wspaniałych</h2>
+                    <img class="inactive" src="images/yeoman-logo.png" />
+                    <img src="images/grunt-logo.png" />
+                    <img class="inactive" src="images/bower-logo.png" />
+                </section>
+
+                <section class="theThree">
+                    <h2>3 wspaniałych</h2>
+                    <img class="inactive" src="images/yeoman-logo.png" />
+                    <img class="inactive" src="images/grunt-logo.png" />
                     <img src="images/bower-logo.png" />
                 </section>
 
                 <section>
                     <h2>Tworzenie szkieletu aplikacji w<br />3 prostych krokach</h2>
-                    <pre>
-                        <code class="bash">
-                            npm install -g yo
-                            yo webapp
-                            grunt
-                        </code>
-                    </pre>
+                    <pre><code class="bash">
+                npm install -g yo
+                yo webapp
+                grunt
+                </code></pre>
                 </section>
 
                 <section>
                     <h2>Co właśnie zrobiłem?</h2>
                     <ul>
-                        <li>... tutaj wpisz listę wszystkiego z yo ...</li>
+                        <li>utworzyłem szkielet aplikacji z użyciem HTML5 Bolierplate</li>
+                        <li>skonfigurowałem RequireJS</li>
+                        <li>skonfigurowałem pliki bower.json i package.json</li>
+                        <li>dodałem wpisy do .gitignore</li>
+                        <li>utworzyłem pliki dla edytora: .jshintrc ,.editorconfig</li>
+                        <li>skonfigurowałem taski w pliku Gruntfile.js</li>
+                        <li>skonfigurowałem środowisko uruchamiania testów</li>
+                        <li>skonfigurowałem SASS</li>
                     </ul>
                 </section>
 
@@ -118,6 +144,20 @@
                 </section>
 
                 <section>
+                    <h2>Grunt serve (watch)</h2>
+                    <pre><code>
+                    grunt serve
+                    </code></pre>
+                    <br />
+                    <ul>
+                        <li>continuous testing</li>
+                        <li>continuous building</li>
+                        <li>continuous wszystko</li>
+                        <li>livereload</li>
+                    </ul>
+                </section>
+
+                <section>
                     <ol>
                         <li class="inactive">Szkielet</li>
                         <li class="inactive">Development</li>
@@ -126,6 +166,38 @@
                         <li class="inactive">Monitorowanie</li>
                         <li class="inactive">Jakość kodu i raportowanie</li>
                     </ol>
+                </section>
+
+                <section>
+                    <h2>Testy</h2>
+                    <p>&nbsp;</p>
+                    <p>Nie stać Cię na pisanie testów?</p>
+                    <p><strong class="mark">Nie stać Cię na niepisanie testów!</strong></p>
+                </section>
+
+                <section>
+                    <h2>Problemy</h2>
+                    <ul>
+                        <li>Uruchamianie testów bez przeglądarki</li>
+                        <li>Implementacja DOM</li>
+                        <li>Headless testing</li>
+                        <li>Uruchamianie testów w różnych przeglądarkach</li>
+                        <li>Raportowanie coverage</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Narzędzia</h2>
+                    <ul>
+                        <li>karma + PhantomJS</li>
+                        <li>CasperJS</li>
+                        <li>protractor</li>
+                        <li>istanbul</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Demo</h2>
                 </section>
 
                 <section>
@@ -140,6 +212,22 @@
                 </section>
 
                 <section>
+                    <h2>Klik... i zbudowane</h2>
+                    <ul>
+                        <li>DI</li>
+                        <li>scalanie i minimalizacja JS</li>
+                        <li>SASS i bless</li>
+                        <li>generowanie sprite'ów</li>
+                        <li><strong>testy</strong></li>
+                        <li>source mapy</li>
+                        <li>wersjonowanie</li>
+                        <li>wersje językowe</li>
+                        <li>branding</li>
+                        <li>kopiowanie plików na serwer</li>
+                    </ul>
+                </section>
+
+                <section>
                     <ol>
                         <li class="inactive">Szkielet</li>
                         <li class="inactive">Development</li>
@@ -148,6 +236,30 @@
                         <li>Monitorowanie</li>
                         <li class="inactive">Jakość kodu i raportowanie</li>
                     </ol>
+                </section>
+
+                <section>
+                    <h2>Qbaka</h2>
+                    <p><a href="#">http://www.qbaka.com/</a></p>
+                    <p>&nbsp;</p>
+                    <ul>
+                        <li>statystyki błędów</li>
+                        <li>raporty</li>
+                        <li>stacktrace</li>
+                        <li>lista akcji poprzedzających błąd</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Qbaka - wady</h2>
+                    <p>&nbsp;</p>
+                    <ul>
+                        <li>nie wspiera sourcemap</li>
+                        <li>nie radzi sobie ze zminimalizowanym js</li>
+                    </ul>
+                    <!-- img src="images/qbaka1.png" alt="" />
+                    <img src="images/qbaka2.png" alt="" />
+                    <img src="images/qbaka3.png" alt="" / -->
                 </section>
 
                 <section>
@@ -162,16 +274,31 @@
                 </section>
 
                 <section>
-                    <h1>Demo</h1>
+                    <h2>Raporty</h2>
+                    <p>&nbsp;</p>
+                    <p>Release notes</p>
+                    <pre><code class="bash">git log {DOWOLNY_TAG}..HEAD --format="* %s (%an)"</code></pre>
+                    <p>&nbsp;</p>
+                    <p>Dokumentacja</p>
+                    <ul>
+                        <li><a href="http://docs.sencha.com/extjs/4.2.2/">JSDuck</a></li>
+                        <li><a href="#">JSDoc3</a></li>
+                    </ul>
                 </section>
 
                 <section>
-                    <h2>Linki</h2>
+                    <h2>Statyczna analiza kodu</h2>
+                    <p>&nbsp;</p>
                     <ul>
-                        <li></li>
+                        <li>JSHint</li>
+                        <li><a href="http://es-analysis.github.io/plato/examples/grunt/">Plato</a></li>
                     </ul>
                 </section>
-                
+
+                <section>
+                    <h1>Demo</h1>
+                </section>
+
                 <section>
                     <h1>Dziękuję za uwagę</h1>
                 </section>              
