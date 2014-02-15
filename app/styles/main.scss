@@ -17,9 +17,13 @@
     margin-top: 100px;
 }
 
-.reveal .theThree img {
+.reveal .theThree img,
+.reveal .phantomLogo {
     border: none;
     box-shadow: none;
+}
+
+.reveal .theThree img {
     width: 250px;
 }
 
@@ -30,4 +34,26 @@
 .reveal pre code {
     font-size: 30px;
     line-height: 36px;
+}
+
+.reveal .testTools {
+    margin: 0 15%;
+}
+
+.reveal .testTools ul {
+    float: right;
+    margin-top: 50px;
+}
+
+.reveal .ld {
+    top: -397px !important;
+}
+
+.reveal .ld img {
+    margin: 0;
+    width: 35%;
+}
+
+.reveal .ld img.team {
+    width: 63%;
 }
