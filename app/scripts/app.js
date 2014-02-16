@@ -1,7 +1,16 @@
 /*global define */
+/**
+ * Main application module
+ * @module application
+ */
 define('app', [], function () {
     'use strict';
 
+    /**
+     * Main application class
+     * @class Application
+     * @param {object} Mediator mediator object
+     */
     var Application = function(Mediator){
         var me = this,
             mediator = new Mediator();
@@ -10,6 +19,12 @@ define('app', [], function () {
         mediator.subscribe(me);
     };
 
+    /**
+     * Registers module within the app
+     * @function Application#registerModule
+     * @param  {mixed} Module       module object or constructor
+     * @param  {object} parentModule parent module object
+     */
     Application.prototype.registerModule = function(Module, parentModule){
         var me = this,
             module;
@@ -37,6 +52,12 @@ define('app', [], function () {
         }
     };
 
+    /**
+     * Handy wrapper to registerModule method
+     * @function Application#registerModules
+     * @param  {array} modules modules list
+     * @return {object} application object
+     */
     Application.prototype.registerModules = function(modules){
         var me = this,
             i = 0,
@@ -49,6 +70,14 @@ define('app', [], function () {
         return me;
     };
 
+    /**
+     * Adds module to internal modules list, attaches it to mediator and calls module::init() to invoke it.
+     * @function Application#_addModule
+     * @param {object} moduleObject module object
+     * @param {object} parentModule linked parent module
+     * @return {object} application object
+     * @private
+     */
     Application.prototype._addModule = function(moduleObject, parentModule){
         var me = this;
 
@@ -70,6 +99,11 @@ define('app', [], function () {
         return me;
     };
 
+    /**
+     * Starts the app
+     * @function Application#init
+     * @fires applicationReady
+     */
     Application.prototype.init = function(){
         this.fireEvent('applicationReady');
     };

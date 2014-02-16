@@ -1,11 +1,25 @@
 /*global define*/
 /*global Reveal*/
 /*global hljs*/
+/**
+ * Main module. Initializes slides, adds socket message listeners.
+ * @module main
+ * @return {Object} Module itself
+ */
 define('modules/main', function () {
     'use strict';
 
+    /**
+     * Module class
+     * @class Main
+     */
     var Main = function () {};
 
+    /**
+     * Init method, invoked upon application start
+     * @function Main#init
+     * @public
+     */
     Main.prototype.init = function () {
         var me = this;
 
@@ -13,7 +27,13 @@ define('modules/main', function () {
         me._startRevealJs();
     };
 
-    //TODO: implement handler factory
+    /**
+     * Socket message handler
+     * @function Main#_onSocketMessage
+     * @private
+     * @param {object} message Socket message object
+     * @todo implement handler factory
+     */
     Main.prototype._onSocketMessage = function(message){
         switch(message.data){
         case 'goRight':
@@ -27,7 +47,13 @@ define('modules/main', function () {
         }
     };
 
-    //config taken from reveal.js docs
+    /**
+     * Starts RevealJS application.
+     * Config taken from reveal.js docs
+     * @link https://github.com/hakimel/reveal.js/
+     * @function Main#_startRevealJs
+     * @private
+     */
     Main.prototype._startRevealJs = function(){
         Reveal.initialize({
 
