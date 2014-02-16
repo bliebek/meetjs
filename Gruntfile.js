@@ -109,7 +109,17 @@ module.exports = function (grunt) {
                     ]
                 }]
             },
-            server: '.tmp'
+            server: {
+                files: [{
+                    dot: true,
+                    src: [
+                        '.tmp',
+                        'coverage/*',
+                        'doc/*',
+                        'plato/*'
+                    ]
+                }]
+            }
         },
 
         // Make sure code styles are up to par and there are no obvious mistakes
@@ -304,7 +314,8 @@ module.exports = function (grunt) {
                         '{,*/}*.html',
                         'styles/fonts/{,*/}*.*',
                         'bower_components/requirejs/require.js',
-                        'bower_components/reveal.js/**/*'
+                        'bower_components/reveal.js/**/*',
+                        'scripts/nav.js'
                     ]
                 }]
             },
@@ -356,7 +367,19 @@ module.exports = function (grunt) {
                     destination: 'doc'
                 }
             }
-        }
+        }//,
+
+        // plato: {
+        //     dist: {
+        //         options: {
+        //             jshint: true,
+        //             complexity: true
+        //         },
+        //         files: {
+        //             'plato': ['<%= yeoman.app %>/scripts/**/*.js']
+        //         }
+        //     }
+        // }
     });
 
 
@@ -410,7 +433,8 @@ module.exports = function (grunt) {
         'htmlmin',
         'updateBuildNumber',
         'releaseNotes',
-        'jsdoc'
+        'jsdoc',
+        'plato'
     ]);
 
     grunt.registerTask('default', [
@@ -440,6 +464,15 @@ module.exports = function (grunt) {
             notesPath = 'dist/notes.txt';
 
         exec('git log HEAD@{10}..HEAD --format="* %s (%an)" >> ' + notesPath, function() {
+            done();
+        });
+    });
+
+    grunt.registerTask('plato', function(){
+        var exec = require('child_process').exec,
+            done = this.async();
+
+        exec('plato -d plato -r app/scripts/', function() {
             done();
         });
     });
