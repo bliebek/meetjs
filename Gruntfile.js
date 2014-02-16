@@ -279,7 +279,11 @@ module.exports = function (grunt) {
         //         }
         //     }
         // },
-        // uglify: {
+        uglify: {
+            options: {
+                sourceMap: true
+            }
+        },
         //     dist: {
         //         files: {
         //             '<%= yeoman.dist %>/scripts/scripts.js': [
