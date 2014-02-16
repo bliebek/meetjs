@@ -272,7 +272,8 @@ module.exports = function (grunt) {
                 options: {
                     // `name` and `out` is set by grunt-usemin
                     baseUrl: '<%= yeoman.app %>/scripts',
-                    optimize: 'none',
+                    optimize: 'uglify2',
+                    generateSourceMaps: true,
                     preserveLicenseComments: false,
                     useStrict: true,
                     wrap: true,
@@ -383,7 +384,8 @@ module.exports = function (grunt) {
         'copy:dist',
         'rev',
         'usemin',
-        'htmlmin'
+        'htmlmin',
+        'updateBuildNumber'
     ]);
 
     grunt.registerTask('default', [
@@ -391,4 +393,19 @@ module.exports = function (grunt) {
         'test',
         'build'
     ]);
+
+    grunt.registerTask('updateBuildNumber', function(){
+        var exec = require('child_process').exec,
+            done = this.async(),
+            indexPath = 'dist/index.html',
+            indexFile = grunt.file.read(indexPath);
+
+        exec('git rev-parse HEAD', function(error, stdout) {
+            grunt.log.writeln('Latest git revision: ' + stdout);
+
+            indexFile = indexFile.replace('{{hash}}', stdout.substr(0,7));
+            grunt.file.write(indexPath, indexFile);
+            done();
+        });
+    });
 };
