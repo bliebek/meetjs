@@ -9,9 +9,23 @@ define('modules/main', function () {
     Main.prototype.init = function () {
         var me = this;
 
+        me.on('socketMessage', me._onSocketMessage, me);
         me._startRevealJs();
     };
 
+    //TODO: implement handler factory
+    Main.prototype._onSocketMessage = function(message){
+        switch(message.data){
+        case 'goRight':
+            Reveal.next();
+            break;
+        case 'goLeft':
+            Reveal.prev();
+            break;
+        default:
+            break;
+        }
+    };
 
     //config taken from reveal.js docs
     Main.prototype._startRevealJs = function(){
