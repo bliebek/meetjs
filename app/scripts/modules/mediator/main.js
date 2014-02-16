@@ -1,6 +1,7 @@
 /*global define */
+/*global $ */
 //TODO: change event unbinding
-define('modules/mediator', ['jquery'], function ($) {
+define('modules/mediator', function () {
     'use strict';
 
     var Mediator = function(){

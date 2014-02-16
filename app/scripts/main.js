@@ -1,8 +1,5 @@
 /*global require */
 require.config({
-    paths: {
-        jquery: '../bower_components/jquery/jquery'
-    },
     packages: [
         'modules/mediator',
         'modules/main'

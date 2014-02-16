@@ -38,7 +38,6 @@ define('app', [], function () {
     };
 
     Application.prototype.registerModules = function(modules){
-        console.log('modules: ', modules);
         var me = this,
             i = 0,
             len = modules.length;

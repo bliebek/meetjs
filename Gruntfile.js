@@ -271,13 +271,14 @@ module.exports = function (grunt) {
                 // Options: https://github.com/jrburke/r.js/blob/master/build/example.build.js
                 options: {
                     // `name` and `out` is set by grunt-usemin
-                    baseUrl: '<%= yeoman.app %>/scripts/',
+                    baseUrl: '<%= yeoman.app %>/scripts',
                     optimize: 'none',
                     preserveLicenseComments: false,
                     useStrict: true,
                     wrap: true,
                     out: '<%= yeoman.dist %>/scripts/main.js',
-                    name: 'main'
+                    name: 'main',
+                    mainConfigFile: '<%= yeoman.app %>/scripts/main.js'
                 }
             }
         },

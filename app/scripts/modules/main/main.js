@@ -1,9 +1,7 @@
 /*global define*/
 /*global Reveal*/
 /*global hljs*/
-define('modules/main', [
-    'jquery'
-], function () {
+define('modules/main', function () {
     'use strict';
 
     var Main = function () {};
