@@ -348,6 +348,15 @@ module.exports = function (grunt) {
                 singleRun: true
             }
         },
+
+        jsdoc : {
+            dist : {
+                src: ['<%= yeoman.app %>/scripts/**/*.js'],
+                options: {
+                    destination: 'doc'
+                }
+            }
+        }
     });
 
 
