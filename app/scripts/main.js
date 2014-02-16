@@ -2,14 +2,16 @@
 require.config({
     packages: [
         'modules/mediator',
-        'modules/main'
+        'modules/main',
+        'modules/socket'
     ]
 });
 
 require([
     'app',
     'modules/mediator',
-    'modules/main'
+    'modules/main',
+    'modules/socket'
 ], function (Application, Mediator) {
     'use strict';
 
