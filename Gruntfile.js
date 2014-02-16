@@ -334,7 +334,20 @@ module.exports = function (grunt) {
                 'imagemin',
                 'svgmin'
             ]
-        }
+        },
+
+        karma: {
+            options: {
+                configFile: 'test/karma-unit.js'
+            },
+            unit: {
+                runnerPort: 9101,
+                background: true
+            },
+            continuous: {
+                singleRun: true
+            }
+        },
     });
 
 
@@ -368,7 +381,8 @@ module.exports = function (grunt) {
 
         grunt.task.run([
             'connect:test',
-            'mocha'
+            //'mocha'
+            'karma'
         ]);
     });
 
@@ -385,7 +399,8 @@ module.exports = function (grunt) {
         'rev',
         'usemin',
         'htmlmin',
-        'updateBuildNumber'
+        'updateBuildNumber',
+        'releaseNotes'
     ]);
 
     grunt.registerTask('default', [
@@ -405,6 +420,16 @@ module.exports = function (grunt) {
 
             indexFile = indexFile.replace('{{hash}}', stdout.substr(0,7));
             grunt.file.write(indexPath, indexFile);
+            done();
+        });
+    });
+
+    grunt.registerTask('releaseNotes', function(){
+        var exec = require('child_process').exec,
+            done = this.async(),
+            notesPath = 'dist/notes.txt';
+
+        exec('git log HEAD@{10}..HEAD --format="* %s (%an)" >> ' + notesPath, function() {
             done();
         });
     });
