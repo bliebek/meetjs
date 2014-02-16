@@ -349,7 +349,7 @@ module.exports = function (grunt) {
             }
         },
 
-        jsdoc : {
+        jsdoc: {
             dist : {
                 src: ['<%= yeoman.app %>/scripts/**/*.js'],
                 options: {
@@ -409,7 +409,8 @@ module.exports = function (grunt) {
         'usemin',
         'htmlmin',
         'updateBuildNumber',
-        'releaseNotes'
+        'releaseNotes',
+        'jsdoc'
     ]);
 
     grunt.registerTask('default', [
