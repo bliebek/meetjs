@@ -222,7 +222,7 @@ module.exports = function (grunt) {
             options: {
                 dest: '<%= yeoman.dist %>'
             },
-            html: '<%= yeoman.app %>/index.html'
+            html: ['<%= yeoman.app %>/index.html', '<%= yeoman.app %>/nav.html']
         },
 
         // Performs rewrites based on rev and the useminPrepare configuration
