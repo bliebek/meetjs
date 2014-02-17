@@ -109,7 +109,17 @@ module.exports = function (grunt) {
                     ]
                 }]
             },
-            server: '.tmp'
+            server: {
+                files: [{
+                    dot: true,
+                    src: [
+                        '.tmp',
+                        'coverage/*',
+                        'doc/*',
+                        'plato/*'
+                    ]
+                }]
+            }
         },
 
         // Make sure code styles are up to par and there are no obvious mistakes
@@ -212,7 +222,7 @@ module.exports = function (grunt) {
             options: {
                 dest: '<%= yeoman.dist %>'
             },
-            html: '<%= yeoman.app %>/index.html'
+            html: ['<%= yeoman.app %>/index.html', '<%= yeoman.app %>/nav.html']
         },
 
         // Performs rewrites based on rev and the useminPrepare configuration
@@ -266,31 +276,28 @@ module.exports = function (grunt) {
             }
         },
 
-        // By default, your `index.html`'s <!-- Usemin block --> will take care of
-        // minification. These next options are pre-configured if you do not wish
-        // to use the Usemin blocks.
-        // cssmin: {
-        //     dist: {
-        //         files: {
-        //             '<%= yeoman.dist %>/styles/main.css': [
-        //                 '.tmp/styles/{,*/}*.css',
-        //                 '<%= yeoman.app %>/styles/{,*/}*.css'
-        //             ]
-        //         }
-        //     }
-        // },
-        // uglify: {
-        //     dist: {
-        //         files: {
-        //             '<%= yeoman.dist %>/scripts/scripts.js': [
-        //                 '<%= yeoman.dist %>/scripts/scripts.js'
-        //             ]
-        //         }
-        //     }
-        // },
-        // concat: {
-        //     dist: {}
-        // },
+        requirejs: {
+            dist: {
+                // Options: https://github.com/jrburke/r.js/blob/master/build/example.build.js
+                options: {
+                    // `name` and `out` is set by grunt-usemin
+                    baseUrl: '<%= yeoman.app %>/scripts',
+                    optimize: 'uglify2',
+                    generateSourceMaps: true,
+                    preserveLicenseComments: false,
+                    useStrict: true,
+                    wrap: true,
+                    out: '<%= yeoman.dist %>/scripts/main.js',
+                    name: 'main',
+                    mainConfigFile: '<%= yeoman.app %>/scripts/main.js'
+                }
+            }
+        },
+        uglify: {
+            options: {
+                sourceMap: true
+            }
+        },
 
         // Copies remaining files to places other tasks can use
         copy: {
@@ -305,7 +312,10 @@ module.exports = function (grunt) {
                         '.htaccess',
                         'images/{,*/}*.webp',
                         '{,*/}*.html',
-                        'styles/fonts/{,*/}*.*'
+                        'styles/fonts/{,*/}*.*',
+                        'bower_components/requirejs/require.js',
+                        'bower_components/reveal.js/**/*',
+                        'scripts/nav.js'
                     ]
                 }]
             },
@@ -335,7 +345,41 @@ module.exports = function (grunt) {
                 'imagemin',
                 'svgmin'
             ]
-        }
+        },
+
+        karma: {
+            options: {
+                configFile: 'test/karma-unit.js'
+            },
+            unit: {
+                runnerPort: 9101,
+                background: true
+            },
+            continuous: {
+                singleRun: true
+            }
+        },
+
+        jsdoc: {
+            dist : {
+                src: ['<%= yeoman.app %>/scripts/**/*.js'],
+                options: {
+                    destination: 'doc'
+                }
+            }
+        }//,
+
+        // plato: {
+        //     dist: {
+        //         options: {
+        //             jshint: true,
+        //             complexity: true
+        //         },
+        //         files: {
+        //             'plato': ['<%= yeoman.app %>/scripts/**/*.js']
+        //         }
+        //     }
+        // }
     });
 
 
@@ -369,7 +413,8 @@ module.exports = function (grunt) {
 
         grunt.task.run([
             'connect:test',
-            'mocha'
+            //'mocha'
+            'karma'
         ]);
     });
 
@@ -378,13 +423,18 @@ module.exports = function (grunt) {
         'useminPrepare',
         'concurrent:dist',
         'autoprefixer',
+        'requirejs',
         'concat',
         'cssmin',
         'uglify',
         'copy:dist',
         'rev',
         'usemin',
-        'htmlmin'
+        'htmlmin',
+        'updateBuildNumber',
+        'releaseNotes',
+        'jsdoc',
+        'plato'
     ]);
 
     grunt.registerTask('default', [
@@ -392,4 +442,38 @@ module.exports = function (grunt) {
         'test',
         'build'
     ]);
+
+    grunt.registerTask('updateBuildNumber', function(){
+        var exec = require('child_process').exec,
+            done = this.async(),
+            indexPath = 'dist/index.html',
+            indexFile = grunt.file.read(indexPath);
+
+        exec('git rev-parse HEAD', function(error, stdout) {
+            grunt.log.writeln('Latest git revision: ' + stdout);
+
+            indexFile = indexFile.replace('{{hash}}', stdout.substr(0,7));
+            grunt.file.write(indexPath, indexFile);
+            done();
+        });
+    });
+
+    grunt.registerTask('releaseNotes', function(){
+        var exec = require('child_process').exec,
+            done = this.async(),
+            notesPath = 'dist/notes.txt';
+
+        exec('git log HEAD@{10}..HEAD --format="* %s (%an)" >> ' + notesPath, function() {
+            done();
+        });
+    });
+
+    grunt.registerTask('plato', function(){
+        var exec = require('child_process').exec,
+            done = this.async();
+
+        exec('plato -d plato -r app/scripts/', function() {
+            done();
+        });
+    });
 };
