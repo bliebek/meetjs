@@ -73,10 +73,10 @@ define('modules/socket', function () {
         var me = this,
             socket = me.socket;
 
-        socket.onopen = me._onSocketOpen;
-        socket.onclose = me._onsSocketClose;
-        socket.onerror = me._onSocketError;
-        socket.onmessage = me._onSocketMessage;
+        socket.onopen = me._onSocketOpen.bind(me);
+        socket.onclose = me._onSocketClose.bind(me);
+        socket.onerror = me._onSocketError.bind(me);
+        socket.onmessage = me._onSocketMessage.bind(me);
 
     };
 
